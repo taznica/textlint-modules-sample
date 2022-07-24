@@ -8,7 +8,6 @@ const lintFile: (filePath: string) => Promise<void> = (filePath: string) => {
   const engine = new TextLintEngine(options);
   const filePathList = [path.resolve(process.cwd(), filePath)];
 
-  // @ts-ignore
   return engine.executeOnFiles(filePathList).then((results) => {
     if (engine.isErrorResults(results)) {
       const output = engine.formatResults(results);
